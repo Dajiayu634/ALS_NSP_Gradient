@@ -1,0 +1,27 @@
+# Study-specific methods
+
+## Provenance and analysis version
+This release uses aggregate CSV outputs from the October 7, 2026 revision analyses. Older local manuscript text contains an earlier demographic model with polynomial terms. The current main downstream model is group + age + sex + education + modality-specific motion, with an intercept. Confirm the final manuscript uses this same model before submission. Positive group coefficients indicate ALS minus HC.
+
+## Acquisition
+3T GE Signa HDxt. T1 FSPGR: TR 10.8 ms, TE 4.8 ms, flip angle 9 degrees, 1 mm isotropic, 150 slices. Resting fMRI: TR 2500 ms, TE 30 ms, flip angle 90 degrees, 4 x 4 x 3 mm voxels, 50 slices, 158 time points. Diffusion: TR 14000 ms, TE 90 ms, 2.5 mm slice thickness, 35 diffusion directions at b=1000 s/mm2 plus one b=0 volume. These are manuscript-reported acquisition parameters.
+
+## Parcels and connectomes
+FreeSurfer v7.2 and Desikan-Killiany cortical parcellation, 68 cortical parcels. Matrix/node order is left 34 followed by right 34; the exact parcel-name and network-assignment table must be verified against the saved inputs before release. Do not substitute an alphabetically sorted atlas list. Yeo seven systems are VIS, SMN, DAN, VAN, LIM, FPN and DMN.
+
+Diffusion processing used FSL/CATO with CSD tracking. NOS means the number of reconstructed streamlines assigned to an edge, not axon count. The gradient input used NOS divided by sqrt(Vi*Vj), with FreeSurfer regional gray-matter volumes in mm3; no length normalization or raw minimum-count filter was used. Mean FA is a distinct sensitivity edge weight. Exact diffusion CATO/FSL versions, tracking settings and edge-extraction settings require confirmation from the final configuration; the functional CATO version must not be silently assigned to diffusion processing.
+
+## Functional processing and matrix definitions
+Audited functional CATO v3.2.1: realignment/coregistration, detrending, nuisance regression, filtering and censoring. Regressors were six motion parameters, six derivatives, separate left/right white-matter signals and CSF, plus intercept; no squared motion terms or global-signal regression. Regression preceded zero-phase second-order Butterworth filtering at 0.01–0.1 Hz. Frames were flagged when BOTH FD > 0.25 mm and DVARS > Q3+1.5*IQR; the flagged and immediately preceding frames were removed. Mean FD excludes the initial artificial zero and is calculated before censoring. The analyzed cohort retained 128–156 frames; this is an observed range, not a newly imposed exclusion threshold. No slice-timing step was enabled in CATO; upstream slice-timing provenance remains unverified.
+
+Parcel FC is Pearson correlation. Distinguish full retained-series FC from the 128-frame input: NSP and specified comparison analyses used the first 128 retained frames. NSP used absolute Pearson correlations, INCLUDING the diagonal. Negative eigenvalues were set to zero before squaring. Group-specific calibration used each group's concatenated-series stable FC, separately for integration and segregation; the original 2021 common balance target was not imposed. Network indices are participant-level means of calibrated parcel indices. Group stable-FC targets cannot be reconstructed from individual correlation matrices alone: calibration factors/targets or additional controlled inputs are needed.
+
+## Gradient settings (documentation only)
+BrainSpace cosine kernel, diffusion maps, seven components, alpha=0.5, diffusion_time=0. Whole-cortex FC profiles are 68x68; NOS/FA use separate 34x68 hemisphere profiles. Templates are means across all 145 participants. Seven-component Procrustes alignment uses the matching input/template. External row retention keeps the highest 90% of positions (62/68). Separately, BrainSpace sparsity=90 applies the implementation's percentile filtering after input transpose. These two operations must not be conflated. Preserve component ordering and study-specific sign/orientation; do not assume a universal anatomical G1 direction. Exact BrainSpace commit, parcel labels, template and orientation metadata remain to be verified.
+
+## Downstream inference
+Functional group models adjust for age, sex, education and pre-censoring mean FD. Structural models use mean relative DWI RMS in place of FD. Network outcomes are participant-level averages, not parcel-level observations. BH-FDR families: two global NSP tests jointly; 68 parcel tests per index; seven Yeo tests per index; six Von Economo tests per index; seven gradient-network tests per input. Ordinary 95% coefficient CIs are pointwise.
+
+Clinical partial Spearman analyses rank outcomes and covariates, then correlate residuals. Disease-score models adjust for age/sex; cognitive models also adjust for education. Complete cases are selected per outcome, without zero filling. Families contain 13 cognitive/neuropsychological or six disease scores per imaging feature/cohort, not a correction across all imaging features. Bootstrap CIs use 2000 participant resamples and remain pointwise. Clinical findings retain their exploratory status.
+
+Spatial analyses use Pearson correlations and 5000 paired-hemisphere spins, two-sided p=(exceedances+1)/5001, with six tests in one BH family. Conte69 labels 0,4,39 are excluded; [1–3,5–38,40–70] map to DK68. Independent random reruns need not reproduce the original null values exactly. No gradient or spin-generation code is redistributed here.
