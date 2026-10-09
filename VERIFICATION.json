@@ -1,0 +1,17 @@
+{
+  "actual_analysis_scripts": 7,
+  "syntax": "passed",
+  "hardcoded_private_drive_paths": "removed",
+  "specific_participant_assertions": "Public IDs are not included; study cohort and shape checks remain in the scripts.",
+  "real_data_included": false,
+  "result_tables": "preserved outside public directory",
+  "numerical_reproduction": "pending dependency availability and authorized inputs",
+  "path_configuration": "Study directory names and filenames externalized to config.example.json; private absolute root supplied locally.",
+  "function_equivalence_checks_before_externalizing_paths": [],
+  "syntax_after_path_configuration": "passed",
+  "runtime_after_path_configuration": "not verified because authorized private inputs are not in this release",
+  "aggregate_results_included": false,
+  "parcellation_files_included": false,
+  "participant_level_derived_data_included": false,
+  "license": "pending author and institutional confirmation"
+}

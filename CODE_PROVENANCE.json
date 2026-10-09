@@ -1,0 +1,114 @@
+[
+  {
+    "public_script": "group_graph_and_connection_analysis.py",
+    "source_script": "run_major1_simple_20261007.py",
+    "source_sha256": "affc8deb5b892c7dc829f88044fd8ec443cc0bc4473f5ca5267dabc6e35cf993",
+    "public_sha256": "4ceea04efb1594d0ee6cb8499e8b7987d8f58687e96e7d9d945133ef165f6aae",
+    "observed_mat_fields": [
+      "Absolute_NSP_outcomes",
+      "NSP_outcomes",
+      "Positive_Only_NSP_outcomes",
+      "age",
+      "education",
+      "feature_names",
+      "group",
+      "index",
+      "meanFD",
+      "original_index",
+      "roi2yeo",
+      "scope",
+      "sex"
+    ]
+  },
+  {
+    "public_script": "clinical_correlations_bootstrap.py",
+    "source_script": "recalculate_figure8_split_covariates.py",
+    "source_sha256": "3800025b387e630e50c2d265bc7b2619b570d59ec405ebf969e8f0d43ad38b1e",
+    "public_sha256": "c408e273ac07f134b461f7a415e34e406ac011f91cf475912ed6701c7a5561b3",
+    "observed_mat_fields": [
+      "NSP_outcomes",
+      "age",
+      "clinical",
+      "clinical_names",
+      "education",
+      "feature_names",
+      "group",
+      "original_index",
+      "sex"
+    ]
+  },
+  {
+    "public_script": "structural_motion_sensitivity.py",
+    "source_script": "reanalyze_sc_rms_20261007.py",
+    "source_sha256": "e86e3ddce86e052eceb8bdad07df159663d514341cb32546c76dcc3ec1f4e134",
+    "public_sha256": "44620efdd44e55b1feb83e4ed9afb9299b7eb0929f30c9e2a462c19add1971fc",
+    "observed_mat_fields": [
+      "age",
+      "education",
+      "group",
+      "original_index",
+      "roi2yeo",
+      "sex"
+    ]
+  },
+  {
+    "public_script": "motion_education_descriptives.py",
+    "source_script": "analyze_major34_motion_20261007.py",
+    "source_sha256": "7d82fd203103a74a9e7cb1ac06a476d1d327fc107d9804206841f34b0d7dd9db",
+    "public_sha256": "fd1108a3a16046037d751cfcbe9ebdbbbb9594aa0efd95985d2e07d063e048a4",
+    "observed_mat_fields": [
+      "education",
+      "group",
+      "meanFD",
+      "original_index"
+    ]
+  },
+  {
+    "public_script": "supplementary_subgroup_clinical_spatial.py",
+    "source_script": "run_major567810_20261007.py",
+    "source_sha256": "824f1575d00994856b6f74d3bbe62e850bd9e7d806030a258c3d2692dd82e3f0",
+    "public_sha256": "48bc5ac68d2f19a5e3925bedd00f214cb92c1a05c5b420b2fab8dbf35869aba0",
+    "observed_mat_fields": [
+      "FA",
+      "FA_G1",
+      "FC_OriginalSaved_G1",
+      "NSP_outcomes",
+      "SC_OriginalSaved_G1",
+      "age",
+      "clinical",
+      "clinical_names",
+      "education",
+      "feature_names",
+      "group",
+      "meanFD",
+      "original_index",
+      "roi2yeo",
+      "sex"
+    ]
+  },
+  {
+    "public_script": "plot_main_results.py",
+    "source_script": "plot_major567810_20261007.py",
+    "source_sha256": "7f7b4a529a5a06183b4f53ccde35d724f669f378e8ebca8c73d34563d6b4df52",
+    "public_sha256": "21225c2f7b0691540c4d68a421c3ef48dcc0c9cb8c73e82995913ab7fc6de111",
+    "observed_mat_fields": [
+      "NSP_outcomes",
+      "feature_names",
+      "group",
+      "roi2yeo"
+    ]
+  },
+  {
+    "public_script": "plot_network_spatial_results.py",
+    "source_script": "plot_figure57_current_20261007.py",
+    "source_sha256": "77ecb65197d6b6f7493459499bce67ac733535dd8df22d5b7b4518e8a6b0f814",
+    "public_sha256": "db48f5804ff091f987d7f4f38c6ae07206b862d91231e82ec0578dd4f7abd24e",
+    "observed_mat_fields": [
+      "FC_OriginalSaved_G1",
+      "NSP_outcomes",
+      "SC_OriginalSaved_G1",
+      "group",
+      "original_index"
+    ]
+  }
+]
