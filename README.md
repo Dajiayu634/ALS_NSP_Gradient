@@ -1,16 +1,19 @@
 # ALS connectome study: public analysis code and methods
 
-This repository provides actual downstream analysis scripts, method documentation and references. Participant-level data and study result tables are not included in the minimal public code release.
+This public repository contains study-specific downstream analysis and plotting scripts, method documentation, references, reproducibility metadata, and an example configuration. It does not include raw imaging, participant-level clinical or covariate data, participant-level derived matrices, parcellation files, or aggregate result tables.
 
-NSP computation is referenced to Wang et al. and subsequent disease-method publications. Gradient computation is referenced to BrainSpace. Their source code is not redistributed. Study-specific settings remain documented in `docs/METHODS.md`.
+NSP methodology is referenced to Wang et al. and the cited disease-method publications. Gradient methodology is referenced to BrainSpace. Upstream NSP, BrainSpace, CATO, and FreeSurfer source code is not redistributed. Study-specific settings are documented in [METHODS.md](METHODS.md) and [REFERENCES.md](REFERENCES.md).
 
 ## Included analyses
-- Adjusted NSP outcome comparisons, mean-FC sensitivity, conventional within/between-network connectivity and graph-outcome comparisons.
-- Clinical partial Spearman correlations, missing-data handling, BH-FDR and participant bootstrap intervals.
-- Structural-gradient network inference with DWI RMS and sensitivity settings, using supplied gradients.
-- Education subgroup reanalysis, clinical motion/duration sensitivity and cached-spin spatial inference.
-- Motion/education descriptive comparisons and main/network/spatial plotting.
 
-See `docs/RUN_ANALYSES.md` for private input prerequisites, execution order and important limitations. See `docs/CODE_PROVENANCE.json` for provenance. Scripts are study-specific and retain the 145-person cohort checks. The generic `statistics.py` is supplementary, not the actual study pipeline.
+- Adjusted NSP outcome comparisons, mean-FC sensitivity, conventional within/between-network connectivity, and graph-outcome comparisons.
+- Clinical partial Spearman correlations, missing-data handling, BH-FDR, and participant bootstrap intervals.
+- Structural-gradient network inference with DWI RMS and sensitivity settings, using supplied private gradients.
+- Education subgroup reanalysis, clinical motion/duration sensitivity, and cached-spin spatial inference.
+- Motion/education descriptive comparisons and main, network, and spatial plotting.
 
-The previously prepared aggregate CSVs are not part of this minimal code release. No real clinical data, participant matrices, time series or identity maps are included. Data-access arrangements and licensing remain subject to author/institutional confirmation; see `DATA_AVAILABILITY.md` and `RELEASE_CHECKLIST.md`.
+See [RUN_ANALYSES.md](RUN_ANALYSES.md) for private input prerequisites, execution order, and limitations. See [CODE_PROVENANCE.json](CODE_PROVENANCE.json) for the relationship between the public scripts and their source analyses. The scripts retain study-specific cohort checks and require authorized private inputs; they are not a self-contained raw-to-results pipeline.
+
+## Public-data scope
+
+See [DATA_AVAILABILITY.md](DATA_AVAILABILITY.md) for the code-only data-sharing statement. No participant-level data, identity maps, parcellation files, or aggregate result tables are included in this repository.
